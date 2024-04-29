@@ -6,7 +6,7 @@ Neural Radiance Fields (NeRF) have revolutionized 3D computer vision and graphic
 
 ## Overview of $S^2$ NeRF
 
-![Overview of $S^2$ NeRF framework.](img/splitnerf.png)
+![Overview of $S^2$ NeRF framework.](./img/splitnerf.png)
 
 ## Installation
 
