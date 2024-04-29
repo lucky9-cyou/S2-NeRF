@@ -1,0 +1,23 @@
+name: s2-nerf
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - python
+  - ninja
+  - trimesh
+  - opencv
+  - tensorboardX
+  - numpy 
+  - pandas
+  - tqdm
+  - matplotlib
+  - rich
+  - packaging
+  - scipy
+  - pip
+  - pip:
+    - imageio
+    - lpips
+    - torch-ema
+    - torch
