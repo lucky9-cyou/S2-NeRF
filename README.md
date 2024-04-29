@@ -5,8 +5,7 @@
 Neural Radiance Fields (NeRF) have revolutionized 3D computer vision and graphics, facilitating novel view synthesis and influencing sectors like extended reality and e-commerce. However, NeRF’s dependence on extensive data collection, including sensitive scene image data, introduces significant privacy risks when users upload this data for model training. To address these concerns, we propose SplitNeRF, a training framework that incorporates split learning (SL) techniques to enable privacy-preserving collaborative model training between clients and servers without sharing local data.
 
 ## Overview of $S^2$ NeRF
-
-![Overview of $S^2$ NeRF framework](./assets/splitnerf.png)
+![s2-nerf](./assets/splitnerf.png)
 
 ## Installation
 
