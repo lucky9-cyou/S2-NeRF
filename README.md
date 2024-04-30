@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Neural Radiance Fields (NeRF) have revolutionized 3D computer vision and graphics, facilitating novel view synthesis and influencing sectors like extended reality and e-commerce. However, NeRF’s dependence on extensive data collection, including sensitive scene image data, introduces significant privacy risks when users upload this data for model training. To address these concerns, we propose SplitNeRF, a training framework that incorporates split learning (SL) techniques to enable privacy-preserving collaborative model training between clients and servers without sharing local data.
+Neural Radiance Fields (NeRF) have revolutionized 3D computer vision and graphics, facilitating novel view synthesis and influencing sectors like extended reality and e-commerce. However, NeRF’s dependence on extensive data collection, including sensitive scene image data, introduces significant privacy risks when users upload this data for model training. To address this concern, we propose SplitNeRF, a training framework that incorporates split learning (SL) techniques to enable privacy-preserving collaborative model training between clients and servers without sharing local data. Despite its benefits, we identify vulnerabilities in SplitNeRF by developing two attack methods, Surrogate Model Attack and Scene-aided Surrogate Model Attack, which exploit the shared gradient data and leaked scene images to reconstruct private scene information. To counter these threats, we introduce $S^2$ NeRF, secure SplitNeRF that integrates effective defense mechanisms. By designing decaying noise related to the gradient norm, $S^2$ NeRF preserves privacy while maintaining a high utility of the NeRF model. Our extensive evaluations across multiple datasets demonstrate the effectiveness of $S^2$ NeRF against privacy breaches, confirming its viability for secure NeRF training in sensitive applications.
 
 ## Overview of $S^2$ NeRF
 ![s2-nerf](./assets/splitnerf.png)
@@ -55,16 +55,16 @@ With attack, training nerf models:
 python main_nerf.py /path/to/data --workspace /path/to/workspace --preload --add_dummy --dummy_layer=4 --dummy_lr_decay=0.001 --lambda_grad=1e-2 --eval_interval=5
 ```
 
-### Surrogate Model Attack and Gradient Noise
+### Surrogate Model Attack and $S^2$ NeRF
 
 With attack and gradient noise, training nerf models:
-
 ```bash
 python main_nerf.py /path/to/data --workspace /path/to/workspace --preload --add_dummy --dummy_layer=4 --dummy_lr_decay=0.001 --lambda_grad=1e-2 --eval_interval=5 --add_noise --noise_type=random --noise_std=9.6 --noise_layer=4 --noise_decay=1
 ```
 
 ### Surrogate Model Attack and Label Noise
 
+With attack and label noise, training nerf models:
 ```bash
 python main_nerf.py /path/to/data --workspace /path/to/workspace --preload --add_dummy --dummy_layer=4 --dummy_lr_decay=0.001 --lambda_grad=1e-2 --eval_interval=5 --add_label_noise --label_noise_std=8
 ```
