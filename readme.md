@@ -6,7 +6,7 @@
 
 
 ## Overview of $S^2$ NeRF
-![s2-nerf](./assets/splitnerf.png)
+![s2-nerf](./img/s2-nerf-architecture.png)
 
 ## Installation
 
