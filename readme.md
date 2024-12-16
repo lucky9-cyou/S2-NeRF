@@ -1,5 +1,8 @@
 # $S^2$ NeRF
 
+## Intro
+Official implementation of "[S2NeRF: Privacy-preserving Training Framework for NeRF](https://dl.acm.org/doi/abs/10.1145/3658644.3690185)" (ACM CCS 2024)
+
 ## Abstract
 
 *Neural Radiance Fields* (NeRF) have revolutionized 3D computer vision and graphics, facilitating novel view synthesis and influencing sectors like extended reality and e-commerce. However, NeRF's dependence on extensive data collection, including sensitive scene image data, introduces significant privacy risks when users upload this data for model training. To address this concern, we first propose SplitNeRF, a training framework that incorporates *split learning* (SL) techniques to enable privacy-preserving collaborative model training between clients and servers without sharing local data. Despite its benefits, we identify vulnerabilities in SplitNeRF by developing two attack methods, Surrogate Model Attack and Scene-aided Surrogate Model Attack, which exploit the shared gradient data and a few leaked scene images to reconstruct private scene information. To counter these threats, we introduce $S^2$ NeRF, secure SplitNeRF that integrates effective defense mechanisms. By introducing decaying noise related to the gradient norm into the shared gradient information, $S^2$ NeRF preserves privacy while maintaining a high utility of the NeRF model. Our extensive evaluations across multiple datasets demonstrate the effectiveness of $S^2$ NeRF against privacy breaches, confirming its viability for secure NeRF training in sensitive applications.
@@ -7,6 +10,7 @@
 
 ## Overview of $S^2$ NeRF
 ![s2-nerf](./img/s2-nerf-architecture.png)
+![s2-nerf](./img/s2-nerf-attack.png)
 
 ## Installation
 
@@ -76,6 +80,24 @@ python main_nerf.py /path/to/data --workspace /path/to/workspace --preload --add
 python main_nerf.py /path/to/data --workspace /path/to/workspace --preload --add_dummy --dummy_layer=4 --dummy_lr_decay=0.001 --lambda_grad=1e-2 --eval_interval=5 --inerf
 ```
 
+
+## Citation
+If you used this code for your experiments or found it helpful, consider citing the following paper:
+
+```
+@inproceedings{zhang2024s2nerf,
+  title={S2NeRF: Privacy-preserving Training Framework for NeRF},
+  author={Zhang, Bokang and Zhang, Yanglin and Zhang, Zhikun and Yang, Jinglan and Huang, Lingying and Wu, Junfeng},
+  booktitle={Proceedings of the 2024 on ACM SIGSAC Conference on Computer and Communications Security},
+  pages={258--272},
+  year={2024}
+}
+```
+
+
+
+
+
 ## Acknowledgement
 ```
 @article{mueller2022instant,
@@ -93,3 +115,5 @@ python main_nerf.py /path/to/data --workspace /path/to/workspace --preload --add
     Title = {Torch-ngp: a PyTorch implementation of instant-ngp}
 }
 ```
+
+
